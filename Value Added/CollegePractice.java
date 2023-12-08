@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Number{
     // Method Overloading
     void sum(int a, int b) {
@@ -149,58 +151,86 @@ class Even{
         }
     }
 }
+
+// Creating threads by extending thread class
+class MyThread1 extends Thread {
+    public void run() {
+        System.out.println("Starting Thread1");
+    }
+}
+
+class MyThread2 extends Thread {
+    public void run() {
+        System.out.println("Starting Thread2");
+    }
+}
+
+// Creating thread using interface
+class MyThreadRunnable1 implements Runnable{
+    public void run() {
+        System.out.println("Thread 1 is executing -- by interface");
+    }
+}
+
+class MyThreadRunnable2 implements Runnable{
+    public void run() {
+        System.out.println("Thread 2 is executing -- by interface");
+    }
+}
+
 public class CollegePractice {
     public static void main(String[] args) {
-        // Number n1 = new Number();
-        // n1.sum(5, 10);
-        // n1.sum(5, 10, 15);
-        // Animal a1 = new Animal();
-        // a1.eat();
-        // Deer d1 = new Deer();
-        // d1.eat();
-        // MulSum m1 = new MulSum();
-        // m1.mul();
-
-        // String 
-        // String str1 = "abc";
-        // String str2 = "abcdefgh";
-        // System.out.println(str1.equals(str2));
-        // System.out.println(str1 == str2);
-
-        // String str3 = new String("abc");
-        // System.out.println(str1 == str3);
-
-        // System.out.println(str1 + str2);
-        // System.out.println(str1.replace("a", "b"));
-        // System.out.println(str1.length());
         
-        // System.out.println("str2 index number 2 having character is : "+str2.charAt(1));
-        // System.out.println(str1.compareTo(str2));
-
-        // Parents p1 = new Parents();
-        // p1.setDetails("Utkarsh", 2);
-        // p1.getDetails();
-        // Childr c1 = new Childr();
-        // c1.details(2);
-        // c1.get();
-
-        // B b1 = new B();
-        // b1.method1();
-        // b1.method2();
-
-        // Car c1 = new Car();
-        // c1.start();
-        // c1.stop();
-        // c1.parking();
-
-        // Integer i = new Integer();
-        // i.name(5, 'U');
-        // i.name('A', 10);
 
         // Example e1 = new Example();
         // Example.display();
         // System.out.println("Count = "+Example.count);
-        Even e1 = new Even();
-        e1.evenNum();
+        // Even e1 = new Even();
+        // e1.evenNum();
+
+        // MyThread1 m1 = new MyThread1();
+        // m1.start();
+        // MyThread2 m2 = new MyThread2();
+        // m2.start();
+
+        // MyThreadRunnable1 t11 = new MyThreadRunnable1();
+        // Thread t1 = new Thread(t11);
+        // MyThreadRunnable2 t12 = new MyThreadRunnable2();
+        // Thread t2 = new Thread(t12);
+
+        // t1.start();
+        // t2.start();
+
+        // int a = 60;
+        // int b = 0;
+        // try {
+        //     int c = a/b;
+        //     System.out.println(c);
+        // } catch (Exception e) {
+        //     System.out.println("Not able to divide");
+        // }
+        // System.out.println("End of the program");
+
+        int marks[] = new int[3];
+        marks[0] = 56;
+        marks[1] = 2;
+        marks[2] = 3;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the index: ");
+        int ind = sc.nextInt();
+
+        System.out.println("Enter the num: ");
+        int num = sc.nextInt();
+
+        try {
+            System.out.println("Marks = "+marks[ind]);
+            System.out.println("After divide by num = "+marks[ind]/num);
+        } catch (ArithmeticException e) {
+            System.out.println("AE occured");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("AIBE occured");
+        } catch (Exception e ) {
+            System.out.println("Some exception occured");
+        }
     }
 }
